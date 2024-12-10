@@ -1,32 +1,28 @@
-namespace efEduLed {
-  //% block="test"
-   export function test():number{
-      return 1;
-  }
 
-  const MAX_BRIGHTNESS = 10
+namespace modules{
 
-  export class efEduLedClient extends modules.LedClient {
+  export class FwdEduDial {
+    private _dialClient: modules.RotaryEncoderClient
+    private _cwAction: (delta: number) => void
+    private _ccwAction: (delta: number) => void
 
     constructor(role: string) {
-      super(role)
+      this._dialClient = new modules.RotaryEncoderClient(role)
     }
-
-    //% block
-    setBrightness(value: number): void {
-      this.setBrightness(value / MAX_BRIGHTNESS)
-    }
-
-    //% block
-    brightness(): number {
-      return this.brightness()
-    }
-
-    //% block
-    rotate(offset = 1): void { this.rotate(offset) }
-
-    //% block
-    shift(offset = 1): void { this.shift(offset) }
+    
+    //% group="Dial"
+    //% block="clicks per full turn"
+    //% blockId=fwd_dial_get_clicks_per_turn
+    //% color="#00cc00"
+    clicksPerTurn(): number { return this._dialClient.clicksPerTurn() }
+    
+    //% group="Dial"
+    //% block="%dial position"
+    //% blockId=fwd_dial_get_position
+    //% color="#00cc00"
+     position(): number { return this._dialClient.position() }
+    
+    
 
   }
 }
