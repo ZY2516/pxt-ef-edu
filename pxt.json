@@ -5,7 +5,8 @@
     "dependencies": {
         "core": "*",
         "jacdac": "github:microsoft/pxt-jacdac",
-        "jacdac-rotary-encoder": "github:microsoft/pxt-jacdac/rotary-encoder"
+        "jacdac-rotary-encoder": "github:microsoft/pxt-jacdac/rotary-encoder",
+        "jacdac-led": "github:microsoft/pxt-jacdac/led"
     },
     "files": [
         "main.ts"
