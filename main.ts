@@ -1,5 +1,5 @@
-
-namespace modules{
+//% block="ef-led" color=#ccff00
+namespace ef{
 
   /**
    * Wrapper for FWD Edu rotary encoder, "Dial"
