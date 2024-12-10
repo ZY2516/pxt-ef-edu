@@ -1,4 +1,4 @@
-//% block="ef-led" color=#ddf4ff
+//% block="ef-led" color=#336df4
 namespace ef{
 
   /**
