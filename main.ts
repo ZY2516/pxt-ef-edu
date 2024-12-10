@@ -10,24 +10,23 @@ namespace ef {
    * Wrapper for FWD Edu rotary encoder, aka "Dial"
    **/
   //% fixedInstances
-  export class FwdDialClient extends modules.RotaryEncoderClient {
-    private _cwAction: (delta: number) => void
-    private _ccwAction: (delta: number) => void
+  export class efDialClient extends modules.RotaryEncoderClient {
+    private _cwAction: (delta: number) => void;
+    private _ccwAction: (delta: number) => void;
 
     constructor(role: string) {
-      super(role)
+      super(role);
 
-      this._cwAction = (_) => {}
-      this._ccwAction = (_) => {}
+      this._cwAction = (_) => {};
+      this._ccwAction = (_) => {};
 
       this.onReadingChangedBy(1, (delta: number) => {
         if (delta > 0) {
-          this._cwAction(delta)
+          this._cwAction(delta);
         } else {
-          this._ccwAction(delta)
+          this._ccwAction(delta);
         }
-      })
-
+      });
     }
     
     /**
@@ -36,8 +35,8 @@ namespace ef {
     //% group="Dial"
     //% block="$this clicks per full turn"
     //% rotaryencoder.defl=dial1
-    //% blockId=fwd_dial_get_clicks_per_turn
-    fwdClicksPerTurn(): number { return this.clicksPerTurn() }
+    //% blockId=ef_dial_get_clicks_per_turn
+    efClicksPerTurn(): number { return this.clicksPerTurn(); }
     
     /**
      * The absolute position of the dial since it was last connected.
@@ -46,8 +45,8 @@ namespace ef {
      */
     //% group="Dial"
     //% block="$this absolute position"
-    //% blockId=fwd_dial_get_position
-    fwdPosition(): number { return this.position() }
+    //% blockId=ef_dial_get_position
+    efPosition(): number { return this.position(); }
 
     /**
      * Run code when the dial is turned in a specific direction
@@ -57,19 +56,17 @@ namespace ef {
     //% draggableParameters="reporter"
     //% group="Dial"
     //% block="on $this turned by $direction $difference"
-    //% blockId=fwd_dial_on_dial_turned
+    //% blockId=ef_dial_on_dial_turned
     //% weight=98
-    fwdOnDialTurned(direction: DialDirection, handler: (difference: number) => void): void {
+    efOnDialTurned(direction: DialDirection, handler: (difference: number) => void): void {
       if (direction === DialDirection.CW) {
-        this._cwAction = handler
+        this._cwAction = handler;
       } else {
-        this._ccwAction = handler
+        this._ccwAction = handler;
       }
     }
-
-    
   }
 
   //% fixedInstance whenUsed weight=1 block="dial1"
-  export const dial1 = new FwdDialClient("dial1")
+  export const dial1 = new efDialClient("dial1");
 }
