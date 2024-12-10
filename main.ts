@@ -11,7 +11,7 @@ namespace ef {
       this._cwAction = (_) => {};
       this._ccwAction = (_) => {};
 
-      // 假设 onReadingChangedBy 是 RotaryEncoderClient 的一个方法，它监听旋转编码器的变化
+      // 监听旋转编码器的变化
       this.onReadingChangedBy(1, (delta) => {
         if (delta > 0) {
           this._cwAction(delta); // 顺时针
@@ -36,19 +36,29 @@ namespace ef {
     }
 
     /**
-     * 获取每转点击数（假设这是由父类提供的）。
+     * 获取每转点击数。
      */
     //% group="Dial"
     //% block="%dial clicks per full turn"
     //% blockId=fwd_dial_get_clicks_per_turn
     clicksPerTurn(): number { 
-      // 这里应该返回实际每转点击数，可能来自父类或某个配置属性
-      return super.clicksPerTurn(); // 假设父类实现了这个方法
+      // 返回实际每转点击数，假设父类提供了这个方法
+      return super.clicksPerTurn(); 
     }
 
     /**
-     * 获取当前位置（假设这是由父类提供的）。
+     * 获取当前位置。
      */
     //% group="Dial"
     //% block="%rotaryencoder absolute position"
-    //% blockId=fwd
+    //% blockId=fwd_dial_get_position
+    position(): number { 
+      // 返回实际位置，假设父类提供了这个方法
+      return super.position(); 
+    }
+  }
+
+  // 创建一个名为 "ef1" 的固定实例
+  //% fixedInstance whenUsed weight=1 block="ef1"
+  export const ef1 = new FwdEduDialClient("ef1");
+}
