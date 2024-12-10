@@ -1,0 +1,21 @@
+{
+    "name": "pxt-ef-edu",
+    "version": "0.0.1",
+    "description": "thing",
+    "dependencies": {
+        "core": "*",
+        "pxt-jacdac": "github:microsoft/pxt-jacdac"
+    },
+    "files": [
+        "main.ts"
+    ],
+    "public": true,
+    "targetVersions": {
+        "target": "7.0.51",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj"
+}
