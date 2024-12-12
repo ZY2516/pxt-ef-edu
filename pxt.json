@@ -4,12 +4,11 @@
     "description": "thing",
     "dependencies": {
         "core": "*",
-        "jacdac": "github:microsoft/pxt-jacdac",
-        "jacdac-rotary-encoder": "github:microsoft/pxt-jacdac/rotary-encoder",
-        "jacdac-led": "github:microsoft/pxt-jacdac/led"
+        "jacdac": "github:microsoft/pxt-jacdac"
     },
     "files": [
-        "main.ts"
+        "main.ts",
+        "button.ts"
     ],
     "public": true,
     "targetVersions": {
