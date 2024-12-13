@@ -8,7 +8,8 @@
     },
     "files": [
         "main.ts",
-        "button.ts"
+        "button.ts",
+        "servo.ts"
     ],
     "public": true,
     "targetVersions": {
