@@ -80,11 +80,11 @@ namespace ef {
     private _holdDuration: number = 0
 
     constructor(role: string) {
-      super(jacdac.SRV_BUTTON, role, "u0.16")
+      super(efjacdac.SRV_BUTTON, role, "u0.16")
 
       this._analog = this.addRegister<[boolean]>(
-        jacdac.ButtonReg.Analog,
-        jacdac.ButtonRegPack.Analog,
+        efjacdac.ButtonReg.Analog,
+        efjacdac.ButtonRegPack.Analog,
         jacdac.RegisterClientFlags.Optional |
         jacdac.RegisterClientFlags.Const
       )
@@ -95,15 +95,15 @@ namespace ef {
     private handleEvent(pkt: jacdac.JDPacket) {
       const code = pkt.eventCode
       switch (code) {
-        case jacdac.ButtonEvent.Up:
+        case efjacdac.ButtonEvent.Up:
           this._pressed = false
           this._holdDuration = pkt.intData
           break
-        case jacdac.ButtonEvent.Hold:
+        case efjacdac.ButtonEvent.Hold:
           this._pressed = true
           this._holdDuration = pkt.intData
           break
-        case jacdac.ButtonEvent.Down:
+        case efjacdac.ButtonEvent.Down:
           this._pressed = true
           this._holdDuration = 0
           break
@@ -167,7 +167,7 @@ namespace ef {
     //% blockId=jacdac_on_button_event
     //% block="on %button %event"
     //% weight=80
-    onEvent(ev: jacdac.ButtonEvent, handler: () => void): void {
+    onEvent(ev: efjacdac.ButtonEvent, handler: () => void): void {
       this.registerEvent(ev, handler)
     }
 
@@ -192,7 +192,7 @@ namespace ef {
     //% group="Button"
     //% weight=70
     onDown(handler: () => void): void {
-      this.registerEvent(jacdac.ButtonEvent.Down, handler)
+      this.registerEvent(efjacdac.ButtonEvent.Down, handler)
     }
     /**
      * Emitted when button goes from active to inactive. The 'time' parameter
@@ -201,7 +201,7 @@ namespace ef {
     //% group="Button"
     //% weight=65
     onUp(handler: () => void): void {
-      this.registerEvent(jacdac.ButtonEvent.Up, handler)
+      this.registerEvent(efjacdac.ButtonEvent.Up, handler)
     }
     /**
      * Emitted when the press time is greater than 500ms, and then at least every 500ms
@@ -211,7 +211,7 @@ namespace ef {
     //% group="Button"
     //% weight=50
     onHold(handler: () => void): void {
-      this.registerEvent(jacdac.ButtonEvent.Hold, handler)
+      this.registerEvent(efjacdac.ButtonEvent.Hold, handler)
     }
   }
   //% fixedInstance whenUsed weight=1 block="button1"
