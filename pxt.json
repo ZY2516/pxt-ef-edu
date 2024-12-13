@@ -9,7 +9,8 @@
     "files": [
         "main.ts",
         "button.ts",
-        "servo.ts"
+        "servo.ts",
+        "relay.ts"
     ],
     "public": true,
     "targetVersions": {
