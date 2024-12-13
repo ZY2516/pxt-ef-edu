@@ -10,6 +10,7 @@
         "main.ts",
         "button.ts",
         "servo.ts",
+        "servo2.ts",
         "relay.ts"
     ],
     "public": true,
