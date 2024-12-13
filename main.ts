@@ -600,7 +600,7 @@ namespace ef {
   //% fixedInstances blockGap=8
   export class RelayClient extends jacdac.Client {
     private readonly _active: jacdac.RegisterClient<[boolean]>
-    private readonly _variant: jacdac.RegisterClient<[jacdac.RelayVariant]>
+    private readonly _variant: jacdac.RegisterClient<[efjacdac.RelayVariant]>
     private readonly _maxSwitchingCurrent: jacdac.RegisterClient<[number]>
 
     constructor(role: string) {
@@ -610,7 +610,7 @@ namespace ef {
         efjacdac.RelayReg.Active,
         efjacdac.RelayRegPack.Active
       )
-      this._variant = this.addRegister<[jacdac.RelayVariant]>(
+      this._variant = this.addRegister<[efjacdac.RelayVariant]>(
         efjacdac.RelayReg.Variant,
         efjacdac.RelayRegPack.Variant,
         jacdac.RegisterClientFlags.Optional |
@@ -658,7 +658,7 @@ namespace ef {
     //% callInDebugger
     //% group="Relay"
     //% weight=98
-    variant(): jacdac.RelayVariant {
+    variant(): efjacdac.RelayVariant {
       this.start()
       const values = this._variant.pauseUntilValues() as any[]
       return values[0]
