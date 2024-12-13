@@ -1,4 +1,4 @@
-namespace modules {
+namespace ef {
     //% fixedInstance whenUsed weight=2 block="servo2"
     export const servo2 = new ServoClient("servo2")
     //% fixedInstance whenUsed weight=3 block="servo3"
